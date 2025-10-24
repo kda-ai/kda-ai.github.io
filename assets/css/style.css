@@ -334,7 +334,7 @@ h1, h2, h3, h4, h5, h6 {
 #hero {
   width: 100%;
   height: 60vh;
-  background: url("../img/bg_sample.jpeg") center center;
+  background: url("../img/bg_sample_small.jpeg") center center;
   background-size: cover;
   position: relative;
   margin-top: 70px;
