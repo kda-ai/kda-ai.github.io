@@ -84,15 +84,21 @@ def assign_reviewers(
 
     for paper in papers:
         if paper in assignments.keys():
-            continue  # Skip papers that already have assigned reviewers.
+            if len(assignments[paper]) == k:
+                continue  # Skip papers that already have assigned reviewers.
+        else:
+            assignments[paper] = []
 
         # Sort members by current load; shuffle first to break ties randomly.
         candidates = pc_members[:]
+
+        for candidate in assignments[paper]:
+            candidates.remove(candidate)
         rng.shuffle(candidates)
         candidates.sort(key=lambda m: load[m])
 
-        selected = candidates[:k]
-        assignments[paper] = selected
+        selected = candidates[:k-len(assignments[paper])]
+        assignments[paper].extend(selected)
 
         for member in selected:
             load[member] += 1
@@ -156,6 +162,12 @@ if __name__ == "__main__":
             "Matteo Esposito",
             "Mateo 2",
             "Mateo 3",
+        ],
+        "214 CellFlow: A Tool For Automatic Jupyter Notebook Workflow Visualization": [
+            "Sune Lundø Sørensen",
+        ],
+        "307 An Efficient Approach for Model Recovery from Image Containing Diagrams": [
+            "Sune Lundø Sørensen",
         ]
     }
 
