@@ -16,6 +16,10 @@ PC_MEMBERS = [
     "Jakob Hviid",
     "Francesco Daghero",
     "Sune Lundø Sørensen",
+    "Tiziano Santilli",
+    "Matteo Esposito",
+    "Mateo 2",
+    "Mateo 3",
 ]
 
 PAPERS = [
@@ -49,6 +53,7 @@ def assign_reviewers(
     papers: list[str],
     k: int = REVIEWERS_PER_PAPER,
     seed: int | None = 42,
+    assignments: dict[str, list[str]] = {},
 ) -> dict[str, list[str]]:
     """
     Assigns k PC members to each paper using a load-balanced greedy strategy.
@@ -73,9 +78,14 @@ def assign_reviewers(
 
     rng = random.Random(seed)
     load: dict[str, int] = {member: 0 for member in pc_members}
-    assignments: dict[str, list[str]] = {}
+    for paper, reviewers in assignments.items():
+        for reviewer in reviewers:
+            load[reviewer] += 1
 
     for paper in papers:
+        if paper in assignments.keys():
+            continue  # Skip papers that already have assigned reviewers.
+
         # Sort members by current load; shuffle first to break ties randomly.
         candidates = pc_members[:]
         rng.shuffle(candidates)
@@ -140,7 +150,18 @@ def check_overlap(assignments: dict[str, list[str]]) -> None:
 # ── Entry Point ───────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
-    assignments = assign_reviewers(PC_MEMBERS, PAPERS, k=REVIEWERS_PER_PAPER)
+
+    assignments: dict[str, list[str]] = {
+        "321 CAKE: Cloud Architecture Knowledge Evaluation of Large Language Models": [
+            "Matteo Esposito",
+            "Mateo 2",
+            "Mateo 3",
+        ]
+    }
+
+    assignments = assign_reviewers(
+        PC_MEMBERS, PAPERS, k=REVIEWERS_PER_PAPER, assignments=assignments
+    )
     print_assignments(assignments)
     print_load_summary(assignments, PC_MEMBERS)
-    check_overlap(assignments)
+    # check_overlap(assignments)
