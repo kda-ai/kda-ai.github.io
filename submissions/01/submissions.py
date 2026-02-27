@@ -16,9 +16,8 @@ PC_MEMBERS = [
     "Jakob Hviid",
     "Francesco Daghero",
     "Sune Lundø Sørensen",
-    "Tiziano Santilli",
     "Matteo Esposito",
-    "Mateo 2",
+    "Alexander Bakhtin",
     "Mateo 3",
 ]
 
@@ -160,14 +159,28 @@ if __name__ == "__main__":
     assignments: dict[str, list[str]] = {
         "321 CAKE: Cloud Architecture Knowledge Evaluation of Large Language Models": [
             "Matteo Esposito",
-            "Mateo 2",
+            "Alexander Bakhtin",
+            "Mateo 3",
+        ],
+        "322 An Empirical Analysis of LLM-Driven Refactoring for Microservices": [
+            "Matteo Esposito",
+            "Alexander Bakhtin",
             "Mateo 3",
         ],
         "214 CellFlow: A Tool For Automatic Jupyter Notebook Workflow Visualization": [
             "Sune Lundø Sørensen",
+            "Jakob Hviid",
+            "Francesco Daghero",
+        ],
+        "215 A Cost-Effective Architecture for Enterprise LLM Applications: Balancing Competing Requirements through RAG-Augmented CPU-Only Inference": [
+            "Aslak Johansen",
+            "Francesco Daghero",
+            "Jakob Hviid",
         ],
         "307 An Efficient Approach for Model Recovery from Image Containing Diagrams": [
             "Sune Lundø Sørensen",
+            "Aslak Johansen",
+            "Matteo Esposito",
         ]
     }
 
