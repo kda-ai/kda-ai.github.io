@@ -18,7 +18,7 @@ PC_MEMBERS = [
     "Sune Lundø Sørensen",
     "Matteo Esposito",
     "Alexander Bakhtin",
-    "Mateo 3",
+    "Klara Borowa",
 ]
 
 PAPERS = [
@@ -160,12 +160,12 @@ if __name__ == "__main__":
         "321 CAKE: Cloud Architecture Knowledge Evaluation of Large Language Models": [
             "Matteo Esposito",
             "Alexander Bakhtin",
-            "Mateo 3",
+            "Klara Borowa",
         ],
         "322 An Empirical Analysis of LLM-Driven Refactoring for Microservices": [
             "Matteo Esposito",
             "Alexander Bakhtin",
-            "Mateo 3",
+            "Klara Borowa",
         ],
         "214 CellFlow: A Tool For Automatic Jupyter Notebook Workflow Visualization": [
             "Sune Lundø Sørensen",
